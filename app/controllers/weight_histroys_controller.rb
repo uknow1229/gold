@@ -1,25 +1,20 @@
 class WeightHistroysController < ApplicationController
   before_action :set_weight_histroy, only: %i[ show edit update destroy ]
 
-  # GET /weight_histroys or /weight_histroys.json
   def index
     @weight_histroys = WeightHistroy.all
   end
 
-  # GET /weight_histroys/1 or /weight_histroys/1.json
   def show
   end
 
-  # GET /weight_histroys/new
   def new
     @weight_histroy = WeightHistroy.new
   end
 
-  # GET /weight_histroys/1/edit
   def edit
   end
 
-  # POST /weight_histroys or /weight_histroys.json
   def create
     @weight_histroy = WeightHistroy.new(weight_histroy_params)
 
@@ -34,7 +29,6 @@ class WeightHistroysController < ApplicationController
     end
   end
 
-  # PATCH/PUT /weight_histroys/1 or /weight_histroys/1.json
   def update
     respond_to do |format|
       if @weight_histroy.update(weight_histroy_params)
@@ -47,7 +41,6 @@ class WeightHistroysController < ApplicationController
     end
   end
 
-  # DELETE /weight_histroys/1 or /weight_histroys/1.json
   def destroy
     @weight_histroy.destroy
 
@@ -58,12 +51,10 @@ class WeightHistroysController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_weight_histroy
       @weight_histroy = WeightHistroy.find(params[:id])
     end
-
-    # Only allow a list of trusted parameters through.
+    
     def weight_histroy_params
       params.require(:weight_histroy).permit(:user_id, :weight, :memo)
     end
